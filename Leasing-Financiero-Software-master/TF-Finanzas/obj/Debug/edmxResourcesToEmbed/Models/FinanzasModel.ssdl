@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinanzasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bien">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="precio" Type="money" Nullable="false" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cuota">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_deuda" Type="int" Nullable="false" />
+    <Property Name="saldo_inicial" Type="money" Nullable="false" />
+    <Property Name="interes" Type="money" Nullable="false" />
+    <Property Name="monto_cuota" Type="money" Nullable="false" />
+    <Property Name="amortizacion" Type="money" Nullable="false" />
+    <Property Name="seguro_riesgo" Type="money" Nullable="false" />
+    <Property Name="recompra" Type="money" Nullable="false" />
+    <Property Name="Comision" Type="money" Nullable="false" />
+    <Property Name="saldo_final" Type="money" Nullable="false" />
+    <Property Name="depreciacion" Type="money" Nullable="false" />
+    <Property Name="ahorro-tributario" Type="money" Nullable="false" />
+    <Property Name="IGV" Type="money" Nullable="false" />
+    <Property Name="f_bruto" Type="money" Nullable="false" />
+    <Property Name="f_igv" Type="money" Nullable="false" />
+    <Property Name="f_neto" Type="money" Nullable="false" />
+    <Property Name="PeriodoGracia" Type="bit" Nullable="false" />
+    <Property Name="Pagado" Type="bit" Nullable="false" />
+    <Property Name="Fecha_De_Pago" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Deuda">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_bien" Type="int" Nullable="false" />
+    <Property Name="id_periodo_gracia" Type="int" Nullable="false" />
+    <Property Name="PG_Tiempo" Type="int" Nullable="false" />
+    <Property Name="nro_años" Type="int" Nullable="false" />
+    <Property Name="frecuencia" Type="int" Nullable="false" />
+    <Property Name="dias_x_año" Type="int" Nullable="false" />
+    <Property Name="TEA" Type="float" Nullable="false" />
+    <Property Name="IGV" Type="float" Nullable="false" />
+    <Property Name="i_renta" Type="float" Nullable="false" />
+    <Property Name="recompra" Type="float" Nullable="false" />
+    <Property Name="costo_notarial" Type="money" Nullable="false" />
+    <Property Name="costo_registral" Type="money" Nullable="false" />
+    <Property Name="tasacion" Type="money" Nullable="false" />
+    <Property Name="comision_de_estudio" Type="money" Nullable="false" />
+    <Property Name="comision_de_activacion" Type="money" Nullable="false" />
+    <Property Name="comision_periodica" Type="money" Nullable="false" />
+    <Property Name="seguro_riesgo" Type="float" Nullable="false" />
+    <Property Name="tasa_ks" Type="float" Nullable="false" />
+    <Property Name="tasa-wacc" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Periodo_gracia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tiempo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bien_id" Type="int" Nullable="false" />
+    <Property Name="IGV" Type="money" Nullable="false" />
+    <Property Name="ValorVenta" Type="money" Nullable="false" />
+    <Property Name="MontoLeasing" Type="money" Nullable="false" />
+    <Property Name="Porcentaje_TEP" Type="float" Nullable="false" />
+    <Property Name="Numero_Cuotas" Type="int" Nullable="false" />
+    <Property Name="Total_Cuotas" Type="int" Nullable="false" />
+    <Property Name="Seguro_Riesgo" Type="money" Nullable="false" />
+    <Property Name="Intereses" Type="money" Nullable="false" />
+    <Property Name="Amortizacion_Capital" Type="money" Nullable="false" />
+    <Property Name="Seguro_contra_riesgo" Type="money" Nullable="false" />
+    <Property Name="Comision_periodica" Type="money" Nullable="false" />
+    <Property Name="Recompra" Type="money" Nullable="false" />
+    <Property Name="Desembolso_Total" Type="money" Nullable="false" />
+    <Property Name="TCEA_FlujoB" Type="float" Nullable="false" />
+    <Property Name="TCEA_FlujoN" Type="float" Nullable="false" />
+    <Property Name="VAN_FlujoB" Type="money" Nullable="false" />
+    <Property Name="VAN_FlujoN" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RUC" Type="bigint" Nullable="false" />
+    <Property Name="correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="contraseña" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idTipoUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Bien_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Bien" Type="Self.Bien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bien">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuota_Deuda">
+    <End Role="Deuda" Type="Self.Deuda" Multiplicity="1" />
+    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deuda">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuota">
+        <PropertyRef Name="id_deuda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deuda_Bien">
+    <End Role="Bien" Type="Self.Bien" Multiplicity="1" />
+    <End Role="Deuda" Type="Self.Deuda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bien">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Deuda">
+        <PropertyRef Name="id_bien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deuda_Periodo_gracia">
+    <End Role="Periodo_gracia" Type="Self.Periodo_gracia" Multiplicity="1" />
+    <End Role="Deuda" Type="Self.Deuda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo_gracia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Deuda">
+        <PropertyRef Name="id_periodo_gracia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Bien">
+    <End Role="Bien" Type="Self.Bien" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bien">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="Bien_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Tipo_usuario">
+    <End Role="Tipo_usuario" Type="Self.Tipo_usuario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idTipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinanzasModelStoreContainer">
+    <EntitySet Name="Bien" EntityType="Self.Bien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cuota" EntityType="Self.cuota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deuda" EntityType="Self.Deuda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Periodo_gracia" EntityType="Self.Periodo_gracia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_usuario" EntityType="Self.Tipo_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Bien_Usuario" Association="Self.FK_Bien_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Bien" EntitySet="Bien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuota_Deuda" Association="Self.FK_cuota_Deuda">
+      <End Role="Deuda" EntitySet="Deuda" />
+      <End Role="cuota" EntitySet="cuota" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deuda_Bien" Association="Self.FK_Deuda_Bien">
+      <End Role="Bien" EntitySet="Bien" />
+      <End Role="Deuda" EntitySet="Deuda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deuda_Periodo_gracia" Association="Self.FK_Deuda_Periodo_gracia">
+      <End Role="Periodo_gracia" EntitySet="Periodo_gracia" />
+      <End Role="Deuda" EntitySet="Deuda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Bien" Association="Self.FK_Result_Bien">
+      <End Role="Bien" EntitySet="Bien" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Tipo_usuario" Association="Self.FK_Usuario_Tipo_usuario">
+      <End Role="Tipo_usuario" EntitySet="Tipo_usuario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinanzasModelStoreContainer" CdmEntityContainer="FinanzasEntitiesContext">
+    <EntitySetMapping Name="Tipo_usuario">
+      <EntityTypeMapping TypeName="FinanzasModel.Tipo_usuario">
+        <MappingFragment StoreEntitySet="Tipo_usuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="FinanzasModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="RUC" ColumnName="RUC" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periodo_gracia">
+      <EntityTypeMapping TypeName="FinanzasModel.Periodo_gracia">
+        <MappingFragment StoreEntitySet="Periodo_gracia">
+          <ScalarProperty Name="Tiempo" ColumnName="Tiempo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Biens">
+      <EntityTypeMapping TypeName="FinanzasModel.Bien">
+        <MappingFragment StoreEntitySet="Bien">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cuotas">
+      <EntityTypeMapping TypeName="FinanzasModel.cuota">
+        <MappingFragment StoreEntitySet="cuota">
+          <ScalarProperty Name="Fecha_De_Pago" ColumnName="Fecha_De_Pago" />
+          <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+          <ScalarProperty Name="PeriodoGracia" ColumnName="PeriodoGracia" />
+          <ScalarProperty Name="f_neto" ColumnName="f_neto" />
+          <ScalarProperty Name="f_igv" ColumnName="f_igv" />
+          <ScalarProperty Name="f_bruto" ColumnName="f_bruto" />
+          <ScalarProperty Name="IGV" ColumnName="IGV" />
+          <ScalarProperty Name="ahorro_tributario" ColumnName="ahorro-tributario" />
+          <ScalarProperty Name="depreciacion" ColumnName="depreciacion" />
+          <ScalarProperty Name="saldo_final" ColumnName="saldo_final" />
+          <ScalarProperty Name="Comision" ColumnName="Comision" />
+          <ScalarProperty Name="recompra" ColumnName="recompra" />
+          <ScalarProperty Name="seguro_riesgo" ColumnName="seguro_riesgo" />
+          <ScalarProperty Name="amortizacion" ColumnName="amortizacion" />
+          <ScalarProperty Name="monto_cuota" ColumnName="monto_cuota" />
+          <ScalarProperty Name="interes" ColumnName="interes" />
+          <ScalarProperty Name="saldo_inicial" ColumnName="saldo_inicial" />
+          <ScalarProperty Name="id_deuda" ColumnName="id_deuda" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deudas">
+      <EntityTypeMapping TypeName="FinanzasModel.Deuda">
+        <MappingFragment StoreEntitySet="Deuda">
+          <ScalarProperty Name="tasa_wacc" ColumnName="tasa-wacc" />
+          <ScalarProperty Name="tasa_ks" ColumnName="tasa_ks" />
+          <ScalarProperty Name="seguro_riesgo" ColumnName="seguro_riesgo" />
+          <ScalarProperty Name="comision_periodica" ColumnName="comision_periodica" />
+          <ScalarProperty Name="comision_de_activacion" ColumnName="comision_de_activacion" />
+          <ScalarProperty Name="comision_de_estudio" ColumnName="comision_de_estudio" />
+          <ScalarProperty Name="tasacion" ColumnName="tasacion" />
+          <ScalarProperty Name="costo_registral" ColumnName="costo_registral" />
+          <ScalarProperty Name="costo_notarial" ColumnName="costo_notarial" />
+          <ScalarProperty Name="recompra" ColumnName="recompra" />
+          <ScalarProperty Name="i_renta" ColumnName="i_renta" />
+          <ScalarProperty Name="IGV" ColumnName="IGV" />
+          <ScalarProperty Name="TEA" ColumnName="TEA" />
+          <ScalarProperty Name="dias_x_año" ColumnName="dias_x_año" />
+          <ScalarProperty Name="frecuencia" ColumnName="frecuencia" />
+          <ScalarProperty Name="nro_años" ColumnName="nro_años" />
+          <ScalarProperty Name="PG_Tiempo" ColumnName="PG_Tiempo" />
+          <ScalarProperty Name="id_periodo_gracia" ColumnName="id_periodo_gracia" />
+          <ScalarProperty Name="id_bien" ColumnName="id_bien" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Results">
+      <EntityTypeMapping TypeName="FinanzasModel.Result">
+        <MappingFragment StoreEntitySet="Result">
+          <ScalarProperty Name="VAN_FlujoN" ColumnName="VAN_FlujoN" />
+          <ScalarProperty Name="VAN_FlujoB" ColumnName="VAN_FlujoB" />
+          <ScalarProperty Name="TCEA_FlujoN" ColumnName="TCEA_FlujoN" />
+          <ScalarProperty Name="TCEA_FlujoB" ColumnName="TCEA_FlujoB" />
+          <ScalarProperty Name="Desembolso_Total" ColumnName="Desembolso_Total" />
+          <ScalarProperty Name="Recompra" ColumnName="Recompra" />
+          <ScalarProperty Name="Comision_periodica" ColumnName="Comision_periodica" />
+          <ScalarProperty Name="Seguro_contra_riesgo" ColumnName="Seguro_contra_riesgo" />
+          <ScalarProperty Name="Amortizacion_Capital" ColumnName="Amortizacion_Capital" />
+          <ScalarProperty Name="Intereses" ColumnName="Intereses" />
+          <ScalarProperty Name="Seguro_Riesgo" ColumnName="Seguro_Riesgo" />
+          <ScalarProperty Name="Total_Cuotas" ColumnName="Total_Cuotas" />
+          <ScalarProperty Name="Numero_Cuotas" ColumnName="Numero_Cuotas" />
+          <ScalarProperty Name="Porcentaje_TEP" ColumnName="Porcentaje_TEP" />
+          <ScalarProperty Name="MontoLeasing" ColumnName="MontoLeasing" />
+          <ScalarProperty Name="ValorVenta" ColumnName="ValorVenta" />
+          <ScalarProperty Name="IGV" ColumnName="IGV" />
+          <ScalarProperty Name="Bien_id" ColumnName="Bien_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
